@@ -7,8 +7,10 @@ $conn=mysqli_connect($servername,$username,$password,$database);
 if (!$conn) {
 	die("conection failed".mysqli_connect_error());
 }
-if($_GET["type"]=="cate"){
-$sql="SELECT * from categories";
+if($_GET['type']=="getCatById"){
+    $id=$_GET['cateid'];
+$sql="SELECT * from categories where id=$id";
+
 $result = mysqli_query($conn, $sql);
 $dbdata=array();
 
@@ -22,7 +24,8 @@ if (mysqli_num_rows($result)>0) {
  else {
     echo "0 results";
 }  
-}else if($_GET["type"]=="prod"){
+}else if($_GET["type"]=="prod")
+{
 }
 
 
